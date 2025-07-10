@@ -1,5 +1,6 @@
 
 import React from 'react';
+import { Music } from 'lucide-react';
 import { ArtistCard } from '../components/ArtistCard';
 import { AlbumCard } from '../components/AlbumCard';
 

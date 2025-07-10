@@ -1,6 +1,6 @@
 
 import React, { useState } from 'react';
-import { Search, List, Grid3X3, Plus, ArrowUpDown } from 'lucide-react';
+import { Search, List, Grid3X3, Plus, ArrowUpDown, Play } from 'lucide-react';
 import { Button } from '../components/ui/button';
 import { Input } from '../components/ui/input';
 import { AlbumCard } from '../components/AlbumCard';
