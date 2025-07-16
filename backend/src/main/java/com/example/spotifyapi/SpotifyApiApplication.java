@@ -1,1 +1,12 @@
-// Main Spring Boot Application class
+// Main Spring Boot Application classpackage com.tuempresa.tuapp;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
+public class SpotifyApiApplication {
+
+    public static void main(String[] args) {
+        SpringApplication.run(SpotifyApiApplication.class, args);
+    }
+}
