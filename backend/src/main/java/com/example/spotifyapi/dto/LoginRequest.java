@@ -1,4 +1,4 @@
-package com.tuempresa.tuapp.dto;
+package com.example.spotifyapi.dto;
 
 public class LoginRequest {
     private String code;

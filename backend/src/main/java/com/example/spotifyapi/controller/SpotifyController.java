@@ -1,6 +1,6 @@
-package com.tuempresa.tuapp.controller;
+package com.example.spotifyapi.controller;
 
-import com.tuempresa.tuapp.service.SpotifyService;
+import com.example.spotifyapi.service.SpotifyService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

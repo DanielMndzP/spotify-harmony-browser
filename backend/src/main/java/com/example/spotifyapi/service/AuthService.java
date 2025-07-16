@@ -1,11 +1,11 @@
-package com.tuempresa.tuapp.service;
+package com.example.spotifyapi.service;
 
-import com.tuempresa.tuapp.dto.TokenResponse;
-import com.tuempresa.tuapp.dto.UserResponse;
-import com.tuempresa.tuapp.model.Token;
-import com.tuempresa.tuapp.model.User;
-import com.tuempresa.tuapp.repository.TokenRepository;
-import com.tuempresa.tuapp.repository.UserRepository;
+import com.example.spotifyapi.dto.TokenResponse;
+import com.example.spotifyapi.dto.UserResponse;
+import com.example.spotifyapi.model.Token;
+import com.example.spotifyapi.model.User;
+import com.example.spotifyapi.repository.TokenRepository;
+import com.example.spotifyapi.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.*;
 import org.springframework.stereotype.Service;
@@ -75,3 +75,18 @@ public class AuthService {
         userRepository.save(user);
 
         // Guardar token
+        Token token = tokenRepository.findByUserId(user.getId()).orElse(new Token());
+        token.setUserId(user.getId());
+        token.setAccessToken(accessToken);
+        token.setRefreshToken(refreshToken);
+        token.setExpiresAt(Instant.now().plusSeconds(expiresIn));
+        tokenRepository.save(token);
+
+        // Retornar respuesta
+        Map<String, Object> result = new HashMap<>();
+        result.put("user", new UserResponse(user.getId(), user.getSpotifyId(), user.getEmail(), user.getDisplayName()));
+        result.put("token", new TokenResponse(accessToken, refreshToken, expiresIn));
+        
+        return result;
+    }
+}

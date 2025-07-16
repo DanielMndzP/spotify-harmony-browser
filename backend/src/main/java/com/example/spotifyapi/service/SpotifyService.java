@@ -1,4 +1,4 @@
-package com.tuempresa.tuapp.service;
+package com.example.spotifyapi.service;
 
 import org.springframework.http.*;
 import org.springframework.stereotype.Service;

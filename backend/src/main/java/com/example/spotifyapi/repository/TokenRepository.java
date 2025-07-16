@@ -1,11 +1,13 @@
-package com.tuempresa.tuapp.repository;
+package com.example.spotifyapi.repository;
 
-import com.tuempresa.tuapp.model.Token;
-import com.tuempresa.tuapp.model.User;
+import com.example.spotifyapi.model.Token;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
 import java.util.Optional;
 
+@Repository
 public interface TokenRepository extends JpaRepository<Token, Long> {
-    Optional<Token> findByUser(User user);
+    Optional<Token> findByUserId(Long userId);
+    void deleteByUserId(Long userId);
 }

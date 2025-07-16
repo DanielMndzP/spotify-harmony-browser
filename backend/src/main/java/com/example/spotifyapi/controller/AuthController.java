@@ -1,4 +1,4 @@
-package com.tuempresa.tuapp.controller;
+package com.example.spotifyapi.controller;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.*;

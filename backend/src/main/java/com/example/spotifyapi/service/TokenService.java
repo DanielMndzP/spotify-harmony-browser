@@ -1,7 +1,7 @@
-package com.tuempresa.tuapp.service;
+package com.example.spotifyapi.service;
 
-import com.tuempresa.tuapp.model.Token;
-import com.tuempresa.tuapp.repository.TokenRepository;
+import com.example.spotifyapi.model.Token;
+import com.example.spotifyapi.repository.TokenRepository;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.*;
 import org.springframework.stereotype.Service;
@@ -51,4 +51,9 @@ public class TokenService {
         int expiresIn = (Integer) response.getBody().get("expires_in");
 
         token.setAccessToken(newAccessToken);
-        token.se
+        token.setExpiresAt(Instant.now().plusSeconds(expiresIn));
+        tokenRepository.save(token);
+
+        return newAccessToken;
+    }
+}
